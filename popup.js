@@ -9,7 +9,7 @@ function click() {
             txt.innerHTML = "change";
         }
     } else {
-        console.error('Element with id "txt" not found.');
+        console.error('Element with id "txt" not found');
     }
 }
 
@@ -45,7 +45,8 @@ document.getElementById('analyzeButton').addEventListener('click', function() {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('output').innerText = data.result;
+        const output = data.result === 'Phishy' ? 'URL is phishy' : 'URL is safe';
+        document.getElementById('output').innerText = output;
     })
     .catch(error => console.error('Error:', error));
 });
